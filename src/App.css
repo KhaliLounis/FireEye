@@ -1,0 +1,6 @@
+input:focus + label {
+  top: -5px;
+}
+label{
+    cursor: text;
+}
