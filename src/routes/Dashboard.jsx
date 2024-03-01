@@ -12,7 +12,6 @@ import { piedata } from "../utils//data/piedata";
 import PieChart from "../comps/PieChart";
 import Template from "../comps/Template";
 
-
 const Dashboard = () => {
   const data = [
     {
@@ -39,43 +38,43 @@ const Dashboard = () => {
   ];
   return (
     <Template>
-        <div className="bg-[#D9D9D9] h-screen pl-5 pt-2">
-          <div className="p-4">
-            <h1 className="font-main text-3xl text-black font-bold ">
-              Welcome back, {`Walid Younes`}
+      <div className="bg-[#D9D9D9] h-screen pl-5 pt-2">
+        <div className="p-4">
+          <h1 className="font-main text-3xl text-black font-bold ">
+            Welcome back, {`Walid Younes`}
+          </h1>
+          <p>Dashboard Overview</p>
+        </div>
+        <div className="flex  justify-around">
+          {data.map((item, index) => {
+            return (
+              <Stats
+                title={item.title}
+                count={item.value}
+                icon={item.icon}
+                percent={item.percent}
+                available={item.available}
+              />
+            );
+          })}
+        </div>
+        <div className="grid grid-cols-2">
+          <div className="bg-white rounded-xl w-[90%] p-3 m-10">
+            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
+              Losses
             </h1>
-            <p>Dashboard Overview</p>
+            <LineChart data={linedata} />
           </div>
-          <div className="flex  justify-around">
-            {data.map((item, index) => {
-              return (
-                <Stats
-                  title={item.title}
-                  count={item.value}
-                  icon={item.icon}
-                  percent={item.percent}
-                  available={item.available}
-                />
-              );
-            })}
-          </div>
-          <div className="grid grid-cols-2">
-            <div className="bg-white rounded-xl w-[90%] p-3 m-10">
-              <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
-                Losses
-              </h1>
-              <LineChart data={linedata} />
-              </div>
-              <div className="bg-white rounded-xl w-[90%] p-3 m-10">
-              <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
+          <div className="bg-white rounded-xl w-[90%] p-3 m-10">
+            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
               The reasons
-              </h1>
-              <LineChart data={linedata} />
-            </div>
+            </h1>
+            <LineChart data={linedata} />
           </div>
         </div>
-      </Template>
-      );
+      </div>
+    </Template>
+  );
 };
 
 export default Dashboard;

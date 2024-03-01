@@ -10,9 +10,9 @@ import { CiSearch } from "react-icons/ci";
 const Search = (props) => {
 
   return (
-    <form method="Post" action={props.action} className="searchForm position-relative">
+    <form method="Post" action={props.action} className="searchForm relative">
         <input className="bg-[#D9D9D9] p-2 search-input rounded"   type="text" placeholder="Search..." onChange={()=>props.handleSearch}/>
-        <CiSearch size={25} className="position-absolute top-1 end-1    "/>
+        <CiSearch size={25} className="absolute top-1 end-1    "/>
     </form>
   );
 };
