@@ -3,8 +3,8 @@ import React from 'react'
 
 const Stats = ({title, count , icon , percent, available }) => {
   return (
-    <div className='flex flex-col gap-2 rounded-md bg-white w-64 py-4'>
-        <div className='pl-2'>
+    <div className='flex flex-col gap-2 rounded-xl bg-white w-72 py-4'>
+        <div className='pl-4'>
             <h1 className='font-main font-extrabold text-xl'>{title}</h1>
         </div> 
         <div className='flex items-center justify-around'>
@@ -13,7 +13,7 @@ const Stats = ({title, count , icon , percent, available }) => {
             <img className='self-end'  src={icon} alt="" />
             
         </div>
-        <div className='pl-2'>
+        <div className='pl-4'>
             <p className='font-main font-bold text-[#00000057] text-[15px] '>Available {available}</p>
         </div>
     </div>

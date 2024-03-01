@@ -4,3 +4,61 @@ input:focus + label {
 label{
     cursor: text;
 }
+.tempalte{
+  max-height: 100vh;
+}
+.content{
+  overflow-y: scroll;
+}
+.custom-table{
+  width: 100% !important; 
+  border-radius: 20px ;
+  text-align: center;
+}
+.table-container{
+  width: 95%;
+  margin: auto;
+  overflow: hidden;
+}
+.table-container th{
+  text-align: center;
+}
+
+.listbtn{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 3px;
+}
+.listbtn.active span:nth-child(2){
+  visibility: hidden;
+}
+.listbtn.active span:first-child, .listbtn.active span:last-child{
+  transition: all 1s;
+}
+.listbtn.active span:first-child{
+  transform: rotate(45deg) translateY(11.5px) ;
+  
+}
+.listbtn.active span:last-child{
+  transform: rotate(-45deg) translateY(-11.5px) ;
+
+}
+.listbtn span{
+  width: 35px;
+  height: 3px;
+  background-color: #182448;
+  border-radius: 3px;
+  margin: 3px;
+  
+}
+.filter{
+  width: 95%;
+  margin: auto;
+}
+.searchForm{
+  width: 300px;
+}
+.filter input{
+  width: 100%;
+}

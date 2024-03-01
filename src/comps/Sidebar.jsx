@@ -5,6 +5,7 @@ import { FaHome } from "react-icons/fa";
 import { TiWarning } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import fireeye from '../assets/fireeye.svg'
 
 const Sidebar = () => {
   const navlinks = [
@@ -14,7 +15,7 @@ const Sidebar = () => {
     },
     {
       icon: GiDeliveryDrone,
-      name: "Drones",
+      name: "Devices",
     },
     {
       icon: TiWarning,
@@ -26,9 +27,9 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="flex flex-col bg-[#182448] h-screen px-5 ">
+    <div className="flex flex-col bg-[#182448] h-screen p-5 px-8 ">
       <div className="mb-5">
-        <h1 className="text-white text-2xl font-main font-bold p-5">FireEye</h1>
+        <img src={fireeye} alt="" />
       </div>
       <div>
         {navlinks.map((item, index) => {
