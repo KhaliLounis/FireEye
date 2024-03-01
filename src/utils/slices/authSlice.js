@@ -1,6 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
-const api = "https://55b6-41-220-149-108.ngrok-free.app"
+const api = "https://0823-41-220-146-111.ngrok-free.app"
 
 const initialState = {
       status: 'idle',

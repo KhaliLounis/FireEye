@@ -2,7 +2,7 @@
 import React from "react";
 import Search from "./Search";
 
-const Wilaya = (props) => {
+const Wilaya = () => {
 
     return (
         <select name="wilaya" required className="bg-light rounded" >

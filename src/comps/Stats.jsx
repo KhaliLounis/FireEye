@@ -3,7 +3,7 @@ import React from 'react'
 
 const Stats = ({title, count , icon , percent, available }) => {
   return (
-    <div className='flex flex-col gap-2 rounded-xl bg-white w-72 py-4'>
+    <div className='flex flex-col gap-2 rounded-xl bg-white w-72 py-4 hover:scale-105 transition-all '>
         <div className='pl-4'>
             <h1 className='font-main font-extrabold text-xl'>{title}</h1>
         </div> 

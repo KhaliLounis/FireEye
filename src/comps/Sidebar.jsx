@@ -6,6 +6,7 @@ import { TiWarning } from "react-icons/ti";
 import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import fireeye from '../assets/fireeye.svg'
+import { GrLocation } from "react-icons/gr";
 
 const Sidebar = () => {
   const navlinks = [
@@ -24,6 +25,9 @@ const Sidebar = () => {
     {
       icon: FaUser,
       name: "Users",
+    },
+     { icon: GrLocation,
+      name: "Regions",
     },
   ];
   return (

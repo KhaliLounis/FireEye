@@ -7,7 +7,7 @@ const Filter = (props) => {
 
   return (
     <div className="flex justify-between bg-white rounded-3 shadow filter p-3  my-4 mb-5">
-        <Search action={props.action}/>
+        <Search handleSearch={props.handleSearch}/>
         <Wilaya/>
     </div>
   );

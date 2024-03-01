@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Sidebar from "../comps/Sidebar";
 import UpperBar from "../comps/UpperBar";
 import loc from "../assets/loc.svg";
@@ -11,19 +11,44 @@ import { linedata } from "../utils//data/LineData";
 import { piedata } from "../utils//data/piedata";
 import PieChart from "../comps/PieChart";
 import Template from "../comps/Template";
-
+import { AdminApi } from "../utils/data/constant";
 const Dashboard = () => {
+  const [stats, setStats] = useState()
+  const getData = async () => {
+    try {
+      const response = await fetch(`${AdminApi}dashboard`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem('token'),
+        },
+      });
+      const result = await response.json();
+      setStats(result);
+
+      // Assuming you want to set fetched data to state
+      // setDashboardData(result.data); // Adjust according to your API response structure
+
+    } catch (err) {
+      console.error('Failed to fetch data:', err);
+    }
+  };
+
+  useEffect(() => {
+   getData();
+  }, []);// const {isAuthenticated} = useSelector((state) => state.auth);
+  console.log(stats)
   const data = [
     {
       title: "Successful operations",
-      value: "96",
-      icon: loc,
+      value: `7`,
+      icon: drones,
       percent: "3.2",
       available: "operations",
     },
     {
       title: "Drones number",
-      value: "109",
+      value:  `7`,
       icon: ops,
       percent: "2.1",
       available: "ones",
@@ -31,19 +56,20 @@ const Dashboard = () => {
     {
       title: "Wilayas",
       value: "23",
-      icon: drones,
+      icon: loc,
       percent: "1",
       available: "centers",
     },
   ];
+
   return (
     <Template>
       <div className="bg-[#D9D9D9] h-screen pl-5 pt-2">
         <div className="p-4">
-          <h1 className="font-main text-3xl text-black font-bold ">
+          <h1 className="font-main text-3xl text-black font-bold mb-2 ">
             Welcome back, {`Walid Younes`}
           </h1>
-          <p>Dashboard Overview</p>
+          <p className="font-main font-medium text-[#5252528C] text-2xl">Dashboard Overview</p>
         </div>
         <div className="flex  justify-around">
           {data.map((item, index) => {
@@ -58,15 +84,15 @@ const Dashboard = () => {
             );
           })}
         </div>
-        <div className="grid grid-cols-2">
-          <div className="bg-white rounded-xl w-[90%] p-3 m-10">
-            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
+        <div className="grid grid-cols-2 ">
+          <div className="bg-white rounded-xl w-[88%] p-3 m-10">
+            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               Losses
             </h1>
             <LineChart data={linedata} />
           </div>
-          <div className="bg-white rounded-xl w-[90%] p-3 m-10">
-            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-5 pt-2">
+          <div className="bg-white rounded-xl w-[84%] p-3 m-10">
+            <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               The reasons
             </h1>
             <LineChart data={linedata} />
