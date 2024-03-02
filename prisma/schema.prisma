@@ -1,0 +1,81 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    Int     @id @default(autoincrement())
+  name  String
+  email String  @unique
+  password String
+  region    Region    @relation(fields: [regionId], references: [id])
+  regionId  Int
+}
+
+model Admin {
+  id        Int     @id @default(autoincrement())
+  email String  @unique
+  name  String?
+  password String
+  
+}
+
+model Device {
+  id    Int   @id @default(autoincrement())
+  ref String @unique
+  activeStatus Boolean @default(false)
+  supervision supervisionStatus @default(Normal)
+  longitude Float @default(0)
+  latitude Float @default(0)
+  azimuth Float @default(0)
+  regionId Int @default(0)
+}
+
+enum supervisionStatus {
+  Smoke
+  Fire
+  Normal
+}
+
+model Region {
+  id      Int      @id @default(autoincrement())
+  wilaya  String   @unique
+  name String
+  users   User[]
+  fire Fire[]
+  notification Notification[]
+}
+
+model Fire {
+  id       Int       @id @default(autoincrement())
+  area   Float  @default(0)
+  raison String
+  region   Region   @relation(fields: [regionId], references: [id])
+  regionId Int     // This is the foreign key
+  comment String
+}
+
+enum FireStatus {
+  Done
+  Active
+}
+
+model Notification {
+  id       Int       @id @default(autoincrement())
+  status   Boolean    @default(false)
+  content String
+  region   Region   @relation(fields: [regionId], references: [id])
+  regionId Int     // This is the foreign key
+  createdAt String 
+}
+
