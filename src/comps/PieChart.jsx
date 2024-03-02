@@ -42,7 +42,7 @@ const PieChart = ({ data /* see data tab */ }) => (
             background: 'inherit',
             color: 'rgba(255, 255, 255, 0.3)',
             size: 4,
-            padding: 1,
+            padding: 3,
             stagger: true
         },
         {
@@ -110,8 +110,8 @@ const PieChart = ({ data /* see data tab */ }) => (
             anchor: 'bottom',
             direction: 'row',
             justify: false,
-            translateX: 0,
-            // translateY: 56,
+            translateX: 15,
+            translateY: 56,
             itemsSpacing: 0,
             itemWidth: 100,
             itemHeight: 18,
