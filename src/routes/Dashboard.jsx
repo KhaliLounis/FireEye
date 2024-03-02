@@ -49,14 +49,14 @@ const Dashboard = () => {
   const data = [
     {
       title: "Successful operations",
-      value: stats.fires  ,
+      value: '12'  ,
       icon: ops,
       percent: "3.2",
       available: "operations",
     },
     {
       title: "Drones number",
-      value: stats.devices ,
+      value: "24" ,
       icon: drones,
       percent: "2.1",
       available: "ones",
@@ -72,14 +72,14 @@ const Dashboard = () => {
   return (
     
     <Template>
-      <div className="bg-[#D9D9D9] h-screen pl-5 pt-2">
+      <div className="bg-[#D9D9D9] h-screen pl-5 pt-2 ">
         <div className="p-4">
           <h1 className="font-main text-3xl text-black font-bold mb-2 ">
             Welcome back, {`Walid Younes`}
           </h1>
           <p className="font-main font-medium text-[#5252528C] text-2xl">Dashboard Overview</p>
         </div>
-        <div className="flex  justify-around">
+        <div className="flex  justify-around max-lg:flex-col max-lg:ml-10 max-lg:gap-3">
           {data.map((item, index) => {
             return (
               <Stats
@@ -92,7 +92,7 @@ const Dashboard = () => {
             );
           })}
         </div>
-        <div className="grid grid-cols-2 ">
+        <div className="grid grid-cols-2 max-xl:grid-cols-1">
           <div className="bg-white rounded-xl w-[88%] p-3 m-10">
             <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               Losses

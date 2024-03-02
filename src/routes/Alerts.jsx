@@ -6,7 +6,7 @@ import React, { useState, useEffect } from "react";
 import Template from "../comps/Template";
 import { TiWarningOutline } from "react-icons/ti";
 import { MainApi } from "../utils/data/constant";
-import {alerts} from '../utils/data/AlertsData'
+import { alerts } from "../utils/data/AlertsData";
 
 const Alert = (props) => {
   let styles = {
@@ -59,11 +59,8 @@ const Alerts = () => {
           Welcome back, {`Walid Younes`}
         </h1>
         <div className="ml-5 flex items-center gap-x-4">
-          <div className="relative">
-            <TiWarningOutline size={40} />
-            <div className="absolute rounded-[50%] bg-red-600 w-2 h-2 top-0 left-0"></div>
-            
-          </div>
+          <TiWarningOutline size={40} />
+
           <p className="fs-3 my-3 fw-bold ">Alerts history</p>
         </div>
       </div>
