@@ -1,11 +1,11 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-key */
 import React from "react";
-import Search from "./Search";
 
 const Wilaya = (props) => {
 
     return (
-        <select name="wilaya" required className="bg-light rounded" onChange={(event)=>props.handleChange(event)}>
+        <select name="wilaya" required className="bg-light rounded p-2" onChange={(event)=>props.handleChange(event)}>
             <option value=""> Filter By Wilaya </option>
             <option value="Adrar">Adrar</option>
             <option value="Chlef">Chlef</option>

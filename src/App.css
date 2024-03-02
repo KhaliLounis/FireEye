@@ -5,9 +5,7 @@ input:focus + label {
 label{
     cursor: text;
 }
-.tempalte{
-  max-height: 100vh;
-}
+
 .content{
   overflow-y: scroll;
 }
@@ -62,4 +60,18 @@ label{
 }
 .filter input{
   width: 100%;
+}
+@media screen and (max-width: 600px){
+  .sidebar{
+    width: 0%;
+    transition: all 0.5s;
+
+  }
+  .sidebar.active{
+    width: 80%;
+    transition: all 0.5s;
+  }
+  #root{
+    overflow-y: hidden; 
+  }
 }

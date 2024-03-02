@@ -1,12 +1,9 @@
 /* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
-
-import React, {useState, useEffect} from "react";
+import React from "react";
 import Template from "../comps/Template";
 import { TiWarningOutline } from "react-icons/ti";
-import { MainApi } from "../utils/data/constant";
-
 
 const Alert = (props) => {
   let styles = {
@@ -25,32 +22,44 @@ return (
 )
 }
 
-const Alerts = () => {
-  const [notification, setNotification] = useState([])
-  const getData = async () => {
-    try {
-      const response = await fetch(`${MainApi}alert`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': localStorage.getItem('token'),
-        },
-      });
-      if (!response.ok) {
-        // Handle non-200 status codes
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      const result = await response.json();
-      setNotification(result.notifications)
-      
-    } catch (err) {
-      console.error('Failed to fetch data:', err);
-    }
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-  
+const RegionAlerts = () => {
+  const alerts = [
+    {
+      status: "Pending",
+      region: "Eucalyptus",
+      time: "12:00",
+      device: "GeoScan Aerial",
+      wilaya: "Alger",
+    },
+    {
+      status: "Resolved",
+      region: "Bir Mourad Rais",
+      time: "12:00",
+      device: "GeoScan Aerial",
+      wilaya: "Alger",
+    },
+    {
+      status: "Resolved",
+      region: "Bab El Oued",
+      time: "12:00",
+      device: "Aerial Data Solutions",
+      wilaya: "Alger",
+    },
+    {
+      status: "Pending",
+      region: "El Harrach",
+      time: "12:00",
+      device: "SkyMappers",
+      wilaya: "Alger",
+    },
+    {
+      status: "Pending",
+      region: "Kouba",
+      time: "12:00",
+      device: "Drone 5",
+      wilaya: "Alger",
+    },
+  ];
   return (
     <Template>
       <div className="flex flex-col  ">
@@ -68,17 +77,19 @@ const Alerts = () => {
             <tr>
               <th scope="col">Status</th>
               <th scope="col">Region</th>
-              <th scope="col">Date</th>
+              <th scope="col">Time</th>
+              <th scope="col">Drone</th>
               <th scope="col">Wilaya</th>
             </tr>
           </thead>
           <tbody>
-            {notification.map((alert) => (
+            {alerts.map((alert) => (
               <Alert
-                status={alert.status===0? 'unread': 'read'}
-                region={alert.region.name}
-                time={alert.createdAt}
-                wilaya={alert.region.wilaya}
+                status={alert.status}
+                region={alert.region}
+                time={alert.time}
+                device={alert.device}
+                wilaya={alert.wilaya}
               />
             ))}
           </tbody>
@@ -88,4 +99,4 @@ const Alerts = () => {
   );
 };
 
-export default Alerts;
+export default RegionAlerts;

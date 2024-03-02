@@ -34,12 +34,6 @@ const Login = () => {
     }
 
   };
-  // useEffect(() => {
-  //   console.log(isAuthenticated)
-  //   if (isAuthenticated) {
-  //     navigate("/dashboard");
-  //   }
-  // }, [isAuthenticated, navigate]);
 
   return (
     <div className="h-screen bg-[url('./assets/firebg.png')] flex flex-col ">
@@ -69,7 +63,7 @@ const Login = () => {
             />
             <label
               className={`absolute left-2 top-3 text-[#FFFFFF66] cursor-text font-semibold w-5 ${
-                email && "-top-[6px]"
+                email && "-top-[7px]"
               }`}
               htmlFor="email"
             >
@@ -92,7 +86,7 @@ const Login = () => {
             />
             <label
               className={`absolute left-2 top-3 text-[#FFFFFF66] cursor-text font-semibold w-5 ${
-                password && "-top-[6px]"
+                password && "-top-[7px]"
               }`}
               htmlFor="password"
             >

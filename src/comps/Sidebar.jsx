@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React from "react";
+import React, { useState } from "react";
 import { GiDeliveryDrone } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";
 import { TiWarning } from "react-icons/ti";
@@ -7,8 +7,10 @@ import { FaUser } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import fireeye from '../assets/fireeye.svg'
 import { GrLocation } from "react-icons/gr";
+import { useSelector } from "react-redux";
 
 const Sidebar = () => {
+  const visible = useSelector((state) => state.sidebar.visible);
   const navlinks = [
     {
       icon: FaHome,
@@ -31,7 +33,8 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="flex flex-col bg-[#182448] h-screen p-5 px-8 ">
+    <div className={`sidebar ${visible ? 'active p-5 px-8 ': ''} flex flex-col bg-[#182448] h-screen md:px-8 md:p-5`} >
+
       <div className="mb-5">
         <img src={fireeye} alt="" />
       </div>

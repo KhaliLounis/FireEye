@@ -36,7 +36,6 @@ const LineChart = ({ data }) => (
       tickSize: 5,
       tickPadding: 5,
       tickRotation: 0,
-      legend: "Losses",
       legendOffset: -40,
       legendPosition: "middle",
     }}
@@ -46,29 +45,9 @@ const LineChart = ({ data }) => (
     pointBorderColor={{ from: "serieColor" }}
     pointLabelYOffset={-12}
     useMesh={true}
-    legends={[
-      {
-        anchor: "top-right",
-        direction: "column",
-        justify: false,
-        translateX: 100,
-        translateY: -50,
-        itemsSpacing: 0,
-        itemDirection: "left-to-right",
-        itemWidth: 100,
-        itemHeight: 50,
-        itemOpacity: 0.75,
-        symbolSize: 12,
-        symbolShape: "circle",
-        symbolBorderColor: "rgba(0, 0, 0, .5)",
-        effects: [
-          {
-           
-          },
-        ],
-      },
-    ]}
+    
   />
+  
 );
 
 export default LineChart;

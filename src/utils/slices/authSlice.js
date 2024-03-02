@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
-const api = "https://0823-41-220-146-111.ngrok-free.app"
+const api = "https://b3ee-129-45-115-240.ngrok-free.app"
 
 const initialState = {
       status: 'idle',
@@ -9,6 +9,7 @@ const initialState = {
       token: null,
       isAuthenticated: localStorage.getItem('token') ? true : false,
       isAuthenticating: false,
+      type: 'admin'
 }
 
 

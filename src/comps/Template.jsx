@@ -7,7 +7,7 @@ import UpperBar from "../comps/UpperBar";
 const Template = (props) => {
 
   return (
-    <div className="tempalte flex ">
+    <div className="max-h-screen flex ">
       <Sidebar></Sidebar>
       <div className="flex flex-col w-full">
         <UpperBar></UpperBar>

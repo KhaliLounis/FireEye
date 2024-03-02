@@ -24,17 +24,24 @@ const Dashboard = () => {
           'Authorization': localStorage.getItem('token'),
         },
       });
+
+      console.log('Response:', response); // Log the entire response
+      if (!response.ok) {
+        // Handle non-200 status codes
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
       const result = await response.json();
+      console.log(result)
       if (result) {
         setStats(result);
       } else {
-        // Handle the case where data is not in the expected format or empty
         console.error('No data returned');
       }
     } catch (err) {
       console.error('Failed to fetch data:', err);
     }
   };
+
 
   useEffect(() => {
     getData();
@@ -43,21 +50,21 @@ const Dashboard = () => {
     {
       title: "Successful operations",
       value: stats.fires  ,
-      icon: loc,
+      icon: ops,
       percent: "3.2",
       available: "operations",
     },
     {
       title: "Drones number",
       value: stats.devices ,
-      icon: ops,
+      icon: drones,
       percent: "2.1",
       available: "ones",
     },
     {
       title: "Wilayas",
       value: "48",
-      icon: drones,
+      icon: loc,
       percent: "1",
       available: "centers",
     },
@@ -96,7 +103,7 @@ const Dashboard = () => {
             <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               The reasons
             </h1>
-            <LineChart data={linedata} />
+            <PieChart data={piedata} />
           </div>
         </div>
       </div>
