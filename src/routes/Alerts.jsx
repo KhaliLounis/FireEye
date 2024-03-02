@@ -1,9 +1,65 @@
+/* eslint-disable react/jsx-key */
+/* eslint-disable react/prop-types */
 /* eslint-disable react/no-unescaped-entities */
 import React from "react";
 import Template from "../comps/Template";
 import { TiWarningOutline } from "react-icons/ti";
 
+const Alert = (props) => {
+  let styles = {
+    background:
+      props.status === "Pending"
+        ? "#EDD245"
+        : "#28CC42"  };
+return (
+  <tr>
+  <th><p style={styles} className="py-1 rounded w-20 m-auto">{props.status}</p></th>
+  <td>{props.region}</td>
+  <td className="">{props.time}</td>
+  <td className="">{props.device}</td>
+  <td className="">{props.wilaya}</td>
+</tr>
+)
+}
+
 const Alerts = () => {
+  const alerts = [
+    {
+      status: "Pending",
+      region: "Eucalyptus",
+      time: "12:00",
+      device: "GeoScan Aerial",
+      wilaya: "Alger",
+    },
+    {
+      status: "Resolved",
+      region: "Bir Mourad Rais",
+      time: "12:00",
+      device: "GeoScan Aerial",
+      wilaya: "Alger",
+    },
+    {
+      status: "Resolved",
+      region: "Bab El Oued",
+      time: "12:00",
+      device: "Aerial Data Solutions",
+      wilaya: "Alger",
+    },
+    {
+      status: "Pending",
+      region: "El Harrach",
+      time: "12:00",
+      device: "SkyMappers",
+      wilaya: "Alger",
+    },
+    {
+      status: "Pending",
+      region: "Kouba",
+      time: "12:00",
+      device: "Drone 5",
+      wilaya: "Alger",
+    },
+  ];
   return (
     <Template>
       <div className="flex flex-col  ">
@@ -27,27 +83,15 @@ const Alerts = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">Done</th>
-              <td>Babezzouar |45 city </td>
-              <td className="">14:34</td>
-              <td className="">GeoScan Aerial</td>
-              <td className="">Algiers</td>
-            </tr>
-            <tr>
-              <th scope="row">Pending</th>
-              <td>Babezzouar |45 city </td>
-              <td className="">14:34</td>
-              <td className="">GeoScan Aerial</td>
-              <td className="">Algiers</td>
-            </tr>
-            <tr>
-              <th scope="row">Pending</th>
-              <td>Babezzouar |45 city </td>
-              <td className="">14:34</td>
-              <td className="">GeoScan Aerial</td>
-              <td className="">Algiers</td>
-            </tr>
+            {alerts.map((alert) => (
+              <Alert
+                status={alert.status}
+                region={alert.region}
+                time={alert.time}
+                device={alert.device}
+                wilaya={alert.wilaya}
+              />
+            ))}
           </tbody>
         </table>
       </div>

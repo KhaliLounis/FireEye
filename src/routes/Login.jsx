@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
@@ -6,14 +6,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { adminLogin, userLogin } from "../utils/slices/authSlice";
 import fireeye from "../assets/fireeye.svg";
 import "../App.css";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [user, setUser] = useState(true);
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const navigate = useNavigate();
+
+  let { isAuthenticated } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const handleLogin = (e) => {
     e.preventDefault();
@@ -25,18 +27,27 @@ const Login = () => {
     } else {
       dispatch(userLogin({ email, password }));
     }
-    if (isAuthenticated) {
-      return <Navigate to="/dashboard" />;
+    console.log(isAuthenticated)
+    if (isAuthenticated===true) {
+
+      navigate("/dashboard");
     }
+
   };
+  // useEffect(() => {
+  //   console.log(isAuthenticated)
+  //   if (isAuthenticated) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [isAuthenticated, navigate]);
 
   return (
     <div className="h-screen bg-[url('./assets/firebg.png')] flex flex-col ">
       <div>
         <img
-          src="./assets/fireeye.svg"
+          src={fireeye}
           alt="fireeye"
-          className="self-center mt-10"
+          className="self-center mt-10 ml-10"
         />
       </div>
       <div className="p-8 flex flex-col justify-around self-center">
@@ -58,7 +69,7 @@ const Login = () => {
             />
             <label
               className={`absolute left-2 top-3 text-[#FFFFFF66] cursor-text font-semibold w-5 ${
-                email && "-top-[5px]"
+                email && "-top-[6px]"
               }`}
               htmlFor="email"
             >
@@ -81,7 +92,7 @@ const Login = () => {
             />
             <label
               className={`absolute left-2 top-3 text-[#FFFFFF66] cursor-text font-semibold w-5 ${
-                password && "-top-[5px]"
+                password && "-top-[6px]"
               }`}
               htmlFor="password"
             >
@@ -103,18 +114,18 @@ const Login = () => {
               />
             )}
           </div>
-          <div className="self-center">
-            <button className="text-white bg-[#1D40F5] p-2 w-32 rounded my-3">
+          <div className="self-center flex flex-col">
+            <button className="text-white bg-[#1D40F5] p-2 w-32 rounded my-3 self-center">
               Login
             </button>
           </div>
         </form>
         <div className="self-center">
-          <p className="font-semibold font-main text-white text-2xl opacity-55 my-3">
+          <p className={`font-semibold font-main text-white text-2xl opacity-55 my-3`}>
             {" "}
             Are you a {user ? "Employee" : "Administrator"}?{" "}
             <span
-              onClick={() => setUser(!user)}
+              onClick={() => {setUser(!user); setEmail(""); setPassword("")}}
               className="font-semibold text-2xl text-[#1D40F5] cursor-pointer"
             >
               {" "}

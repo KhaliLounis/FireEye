@@ -39,7 +39,7 @@ const Sidebar = () => {
         {navlinks.map((item, index) => {
           let link =
             item.name === "Dashboard"
-              ? "/"
+              ? "/dashboard"
               : `/${item.name.toLowerCase()}`;
 
           return (

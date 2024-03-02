@@ -2,10 +2,10 @@
 import React from "react";
 import Search from "./Search";
 
-const Wilaya = () => {
+const Wilaya = (props) => {
 
     return (
-        <select name="wilaya" required className="bg-light rounded" >
+        <select name="wilaya" required className="bg-light rounded" onChange={(event)=>props.handleChange(event)}>
             <option value=""> Filter By Wilaya </option>
             <option value="Adrar">Adrar</option>
             <option value="Chlef">Chlef</option>

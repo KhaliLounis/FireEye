@@ -2,8 +2,10 @@ import React, { useState } from "react";
 import { FaRegBell } from "react-icons/fa6";
 import profilepic from "../assets/profilepic.png";
 import {logout} from "../utils/slices/authSlice";
+import { useNavigate } from "react-router-dom";
 const UpperBar = (props) => {
   const [visible, setVisble] = useState(false)
+  const navigate = useNavigate();
   return (
     <div className="flex justify-between p-2 items-center">
       <div>
@@ -22,7 +24,7 @@ const UpperBar = (props) => {
           </button>
           <ul className="dropdown-menu">
             <li><a className="dropdown-item" href="#">Profile</a></li>
-            <li><a className="dropdown-item" href="#" onClick={()=> logout()}>Logout</a></li>
+            <li><a className="dropdown-item" href="#" onClick={()=> {logout(); navigate('/')}}>Logout</a></li>
           </ul>
         </div>
       </div>

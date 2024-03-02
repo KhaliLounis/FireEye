@@ -12,7 +12,7 @@ const Search = (props) => {
   return (
     <form method="Post"  className="searchForm relative">
         <input className="bg-[#D9D9D9] p-2 search-input rounded"   type="text" placeholder="Search..." onChange={(event) => props.handleSearch(event)}/>
-        <CiSearch size={25} className="absolute top-1 end-1    "/>
+        <CiSearch size={25} className="absolute top-1 end-1"/>
     </form>
   );
 };
