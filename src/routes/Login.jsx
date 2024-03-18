@@ -36,7 +36,7 @@ const Login = () => {
   };
 
   return (
-    <div className="h-screen bg-[url('./assets/firebg.png')] flex flex-col ">
+    <div className="h-screen bg-[url('./assets/firebg.png')] flex flex-col overflow-hidden">
       <div>
         <img
           src={fireeye}

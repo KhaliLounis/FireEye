@@ -5,15 +5,18 @@ import profilepic from "../assets/profilepic.png";
 import { logout } from "../utils/slices/authSlice";
 import { useNavigate } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { setVisible } from "../utils/slices/sidebarSlice";
 import '../App.css'
 const UpperBar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const visible = useSelector((state) => state.sidebar.visible);
+  console.log(visible)
+
   return (
-    <div className="flex justify-between p-2 items-center">
-      <div>
+    <div className={`flex justify-between p-2 items-center ${visible ? 'ml-[50%] overflow-hidden ' : ''}`}>
+      <div className={`${visible ? 'mr-[55%] ' :''}`}>
         <IoMenu
           size={30}
           className="hidden max-md:block self-left cursor-pointer"
@@ -25,7 +28,7 @@ const UpperBar = () => {
           <div className="absolute rounded-[50%] bg-red-600 w-2 h-2 top-0 left-0"></div>
 
           <FaRegBell size={25}/>
-          <p className="cc absolute right-2 top-0 font-main text-white font-semibold text-md bg-red-600 text-nowrap rounded -z-5 p-1">New Alert!</p>
+          <p className="cc absolute right-2 top-0  font-main text-white font-semibold text-md bg-red-600 text-nowrap rounded -z-5 p-1">New Alert!</p>
           </div>
         <img
           src={profilepic}

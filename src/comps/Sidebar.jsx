@@ -33,12 +33,12 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className={`sidebar ${visible ? 'active p-5 px-8 ': ''} flex flex-col bg-[#182448] h-screen md:px-8 md:p-5`} >
+    <div className={`sidebar ${visible ? 'active fixed z-[66] ': ''} flex flex-col bg-[#182448] h-screen `} >
 
-      <div className="mb-5">
+      <div className="mb-5 p-5">
         <img src={fireeye} alt="" />
       </div>
-      <div>
+      <div className=" p-3">
         {navlinks.map((item, index) => {
           let link =
             item.name === "Dashboard"

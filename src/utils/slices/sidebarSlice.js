@@ -9,11 +9,11 @@ const sidebarSlice = createSlice({
   name: "sidebar",
   initialState,
   reducers: {
-    setVisible: (state ) => {
+    setVisible: (state) => {
       state.visible = !state.visible;
     }
   },
 });
 
-export const  {setVisible, setInvisible} = sidebarSlice.actions
+export const  {setVisible} = sidebarSlice.actions
 export default sidebarSlice.reducer
