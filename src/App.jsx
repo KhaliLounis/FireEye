@@ -13,7 +13,7 @@ const App = () => {
 
   return (
     <Router>
-      {isAuthenticated ? (
+      {/* {isAuthenticated ? ( */}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route path="/dashboard" element={<Dashboard />} />
@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/alerts" element={<Alerts />} />
           <Route path="/regions" element={<Regions />} />
         </Routes>
-      ) : (
+      {/* ) : (
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
@@ -35,7 +35,7 @@ const App = () => {
             }
           />
         </Routes>
-      )}
+      )} */}
     </Router>
   );
 };

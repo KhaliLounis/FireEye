@@ -1,15 +1,15 @@
 import React from "react";
 import Wilaya from "./Wilayas";
 import { IoClose } from "react-icons/io5";
-import { useClickAway } from "@uidotdev/usehooks";
+// import { useClickAway } from "@uidotdev/usehooks";
 import { closeModal } from "../utils/slices/modalSlice";
 import { useDispatch } from "react-redux";
 
 const Modal = () => {
   const dispatch = useDispatch();
-  const ref = useClickAway(() => {
-    dispatch(closeModal());
-  });
+  // const ref = useClickAway(() => {
+  //   dispatch(closeModal());
+  // });
   return (
     <div className="">
       <div className="top-0 left-0 h-screen w-screen fixed m-0 bg-[rgba(20,20,20,0.25)]" onClick={()=> dispatch(closeModal())}></div>

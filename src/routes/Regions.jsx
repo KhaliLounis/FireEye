@@ -70,10 +70,10 @@ const Regions = () => {
         <table className="table table-hover custom-table">
           <thead>
           <tr>
-              <th scope="col">Wilaya's Name</th>
-              <th scope="col">Region</th>
-              <th scope="col">Number of fires</th>
-              <th scope="col">Delete</th>
+              <th>Wilaya's Name</th>
+              <th>Region</th>
+              <th>Number of fires</th>
+              <th>Delete</th>
             </tr>
           </thead>
           <tbody>

@@ -4,7 +4,7 @@ export const piedata=[
     "id": "Smoking",
     "label": "Smoking",
     "value": 538,
-    "color": "hsl(14, 70%, 50%)"
+    "color": "hsl(208, 17%, 30%)"
   },
   {
     "id": "Barbecue",

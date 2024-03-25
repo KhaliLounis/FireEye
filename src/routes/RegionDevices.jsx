@@ -63,11 +63,11 @@ const RegionDevices = () => {
         <table className="table table-hover custom-table">
           <thead>
             <tr>
-              <th scope="col">id</th>
-              <th scope="col">Ref</th>
-              <th scope="col">Status</th>
-              <th scope="col">Fire Detection</th>
-              <th scope="col">Location</th>
+              <th>id</th>
+              <th>Ref</th>
+              <th>Status</th>
+              <th>Fire Detection</th>
+              <th>Location</th>
             </tr>
           </thead>
           <tbody>

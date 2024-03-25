@@ -92,17 +92,17 @@ const Dashboard = () => {
           })}
         </div>
         <div className="grid grid-cols-2 max-xl:grid-cols-1">
-          <div className="bg-white rounded-xl w-[88%] p-3 m-10">
+          <div className="bg-white rounded-xl w-[88%] p-3 m-10 max-sm:-translate-x-14 max-sm:w-96">
             <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               Losses
             </h1>
             <LineChart data={linedata} />
           </div>
-          <div className="bg-white rounded-xl w-[84%] p-3 m-10">
+          <div className="bg-white rounded-xl w-[84%] p-3 m-10 max-sm:-translate-x-12 max-sm:w-[23rem]">
             <h1 className="font-[Nunito Sans] font-bold text-[#243465] text-3xl pl-4 pt-2">
               The reasons
             </h1>
-            <PieChart data={piedata} />
+            <PieChart data={piedata}/>
           </div>
         </div>
       </div>

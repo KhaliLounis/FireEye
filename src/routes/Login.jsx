@@ -28,15 +28,15 @@ const Login = () => {
       dispatch(userLogin({ email, password }));
     }
     console.log(isAuthenticated)
-    if (isAuthenticated===true) {
+    // if (isAuthenticated===true) {
 
       navigate("/dashboard");
-    }
+    // }
 
   };
 
   return (
-    <div className="h-screen bg-[url('../assets/firebg.png')] flex flex-col overflow-hidden">
+    <div className="h-screen bg-[url('/firebg.png')] flex flex-col overflow-hidden">
       <div>
         <img
           src={fireeye}

@@ -10,21 +10,20 @@ const Alert = (props) => {
   };
   return (
     <tr>
-      <th>
+      <td>
         <p style={styles} className="py-1 rounded w-20 m-auto">
           {props.status}
         </p>
-      </th>
+      </td>
       <td>{props.region}</td>
       <td className="">{props.time}</td>
-      <td className="">{props.device}</td>
       <td className="">{props.wilaya}</td>
     </tr>
   );
 };
 
 const Alerts = () => {
-  const [notification, setNotification] = useState([]);
+  const [notification, setNotification] = useState(alerts);
   const getData = async () => {
     try {
       const response = await fetch(`${MainApi}alert`, {
@@ -64,21 +63,29 @@ const Alerts = () => {
         <table className="table table-hover custom-table">
           <thead>
             <tr>
-              <th scope="col">Status</th>
-              <th scope="col">Region</th>
-              <th scope="col">Date</th>
-              <th scope="col">Wilaya</th>
+              <th>Status</th>
+              <th>Region</th>
+              <th>Date</th>
+              <th>Wilaya</th>
             </tr>
           </thead>
           <tbody>
             {notification.map((alert) => (
               <Alert
-                status={alert.status === 0 ? "unread" : "read"}
-                region={alert.region.name}
-                time={alert.createdAt}
-                wilaya={alert.region.wilaya}
+                status={alert.status}
+                region={alert.region}
+                time={alert.time}
+                wilaya={alert.wilaya}
               />
             ))}
+            {/*{notification.map((alert) => (
+                <Alert
+                  status={alert.status === 0 ? "unread" : "read"}
+                  region={alert.region.name}
+                  time={alert.createdAt}
+                  wilaya={alert.region.wilaya}
+                />
+            ))} */}
           </tbody>
         </table>
       </div>
