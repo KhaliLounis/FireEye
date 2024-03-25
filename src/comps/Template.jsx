@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/jsx-key */
 import React from "react";
 import Sidebar from "../comps/Sidebar";
 import UpperBar from "../comps/UpperBar";

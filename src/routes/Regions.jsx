@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable react/no-unescaped-entities */
 import React, { useEffect, useState } from "react";
 import Template from "../comps/Template";
 import Filter from "../comps/Filter";

@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React from "react";
 import { GiDeliveryDrone } from "react-icons/gi";
 import { FaHome } from "react-icons/fa";

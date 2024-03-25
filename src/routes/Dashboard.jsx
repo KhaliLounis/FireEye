@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from "react";
 import Sidebar from "../comps/Sidebar";
 import UpperBar from "../comps/UpperBar";

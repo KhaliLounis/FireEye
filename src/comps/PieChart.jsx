@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import { ResponsivePie } from '@nivo/pie'
 
 const PieChart = ({ data /* see data tab */ }) => (
