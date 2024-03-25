@@ -77,10 +77,10 @@ const authSlice = createSlice({
          })
          .addCase(adminLogin.fulfilled, (state, action) => {
         //     console.log(action)
-        //     state.isAuthenticating = false
-        //        state.isAuthenticated = true
-        //        localStorage.setItem('token', action.payload.data.token)
-        //        state.token = action.payload.data.token
+            state.isAuthenticating = false
+               state.isAuthenticated = true
+               localStorage.setItem('token', action.payload.data.token)
+               state.token = action.payload.data.token
 
          })
             .addCase(adminLogin.rejected, (state, action) => {
